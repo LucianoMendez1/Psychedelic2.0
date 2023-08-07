@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+}
+
+.contacto-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.contacto-container {
+  position: relative;
+  background-image: url('./image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8; 
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 900px;
+  text-align: center;
+}
+
+.contacto-titulo {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #548c8e;
+  text-transform: uppercase;
+  font-family: 'Permanent Marker', cursive;
+  text-shadow: 0 0 20px rgba(84, 140, 142, 0.8);
+}
+
+.contacto-container p {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #9359de;
+  line-height: 1.5;
+  text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5); 
+  transform: perspective(900px) rotateX(10deg);
+}
+
+.contacto-container a {
+  color: #131313;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #10fabc; 
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.contacto-container a:hover {
+  background-color: #7110fa; 
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.fin {
+  font-size: 1.5rem;
+  color: #faf8f8; 
+  margin-top: 40px;
+}
+
+.navegacion-container {
+  background-color: #000000;
+}
+
+/* Media Queries for Responsive Layout */
+
+/* For devices with a width less than 768px (e.g., smartphones) */
+@media only screen and (max-width: 767px) {
+  .contacto-titulo {
+    font-size: 4rem;
+  }
+
+  .contacto-container p {
+    font-size: 2rem;
+  }
+}
+
+/* For devices with a width between 768px and 1023px (e.g., tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .contacto-titulo {
+    font-size: 5rem;
+  }
+
+  .contacto-container p {
+    font-size: 2.5rem;
+  }
+}

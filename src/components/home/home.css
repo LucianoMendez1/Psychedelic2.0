@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 .home-container {
   position: relative;
   height: 100vh;
@@ -15,20 +16,19 @@
   text-align: center;
   z-index: 1;
 }
-
 .title {
-  display: inline-block;
-    font-size: 11rem;
-  
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #40e6ec;
-    text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupar toda la altura de la ventana */
+  font-size: 4rem;
+  font-weight: bold;
+  color: #40e6ec;
+  text-transform: uppercase;
   font-family: 'Permanent Marker', cursive;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
-  
+  text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
 }
+
 
 .artist-description {
   display: block;
@@ -52,25 +52,27 @@
 .description-container.show {
   opacity: 1;
 }
-
+h2 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 900;
+}
 
 
 .mi {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  font-size: 24px;
+  display: inline-block;
+  padding: 35px 35px;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #fcfcfc;
-  background-color:#4700fc96;
+  color: #ffffff;
+  background-color: #4700fc3c;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   position: relative;
   overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .mi:before {
@@ -84,7 +86,7 @@
   border-radius: 50%;
   background-color: #25004a;
   opacity: 0;
-  animation: waveAnimation 1s infinite;
+  animation: waveAnimation 1.5s infinite;
   z-index: -1;
 }
 
@@ -95,30 +97,30 @@
     opacity: 0;
   }
   50% {
-    width: 200px;
-    height: 200px;
-    opacity: 0.5;
+    width: 150px;
+    height: 150px;
+    opacity: 0.4;
   }
   100% {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     opacity: 0;
   }
 }
 
 .mi:hover {
   background-color: #4d1bee51;
-  transform: translateZ(4px);
+  transform: scale(1.05);
 }
 
 .mi:hover:before {
-  animation-duration: 1s;
+  animation-duration: 1.5s;
 }
-
 
 .mi .mi-label {
   margin-right: 8px;
 }
+
 
 .cerrar-button {
   display: flex;
@@ -162,12 +164,6 @@
   transform: translateZ(4px);
 }
 
-.webgl {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
 
 
 

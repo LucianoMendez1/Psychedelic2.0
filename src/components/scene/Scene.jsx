@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../home/home.css';
-import planetTexture from './textures/texture1.jpg';
-import planetTexture2 from './textures/texture2.jpg';
+import planetTexture from './textures/texture2.jpg';
+import planetTexture2 from './textures/texture1.jpg';
 import planetTexture3 from './textures/texture3.jpg';
+import earthCloud from './textures/earthCloud22.png';
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -14,11 +15,13 @@ import { VignetteShader } from 'three/examples/jsm/shaders/VignetteShader';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
+
 const Scene = () => {
   const canvas_scene = useRef(null);
   const textTitle = useRef(null);
   const glitchPass = useRef(null);
   const [progress, setProgress] = useState(0);
+  
 
   useEffect(() => {
     const canvas = canvas_scene.current;
@@ -50,8 +53,7 @@ const Scene = () => {
     //CAMERA
 
     const camera = new THREE.PerspectiveCamera(75, size.width / size.height, 0.1, 1000);
-    camera.position.z = 1;
-    camera.position.x = -7;
+    camera.position.set(0, 0, 50);
 
     scene.add(camera);
 
@@ -80,6 +82,7 @@ const Scene = () => {
     const planetMap = textureLoader.load(planetTexture);
     const planetMap2 = textureLoader.load(planetTexture2);
     const planetMap3 = textureLoader.load(planetTexture3);
+    const earthCloud1 = textureLoader.load(earthCloud)
 
     planetMap.minFilter = THREE.LinearFilter;
     planetMap.magFilter = THREE.LinearFilter;
@@ -91,6 +94,8 @@ const Scene = () => {
     planetMap3.magFilter = THREE.LinearFilter;
 
     //PLANET
+    const groupPlanet = new THREE.Group()
+    scene.add(groupPlanet)
 
     const planetGeometry = new THREE.SphereGeometry(16, 32, 16);
     const planetMaterial = new THREE.MeshStandardMaterial({
@@ -99,7 +104,7 @@ const Scene = () => {
     });
 
     const planetMesh = new THREE.Mesh(planetGeometry, planetMaterial);
-    scene.add(planetMesh);
+    groupPlanet.add(planetMesh);
 
     //POST-PROCESSING
 
@@ -228,12 +233,87 @@ const Scene = () => {
 
     addEventListeners();
 
+    // clouds 
+
+    const cloudMetarial2 = new THREE.MeshBasicMaterial({
+      map:earthCloud1,
+      transparent: true,
+      opacity: .9
+  });
+  
+
+  const cloudMesh2 = new THREE.Mesh(planetGeometry, cloudMetarial2);
+  cloudMesh2.scale.set(1.05, 1.05 , 1.05 )
+  cloudMesh2.position.x= .5
+
+
+  groupPlanet.scale.set(.97, .97 , .97)
+  groupPlanet.add(cloudMesh2);
+
+  const cloudMetarial = new THREE.MeshBasicMaterial({
+    map:planetMap2,
+    
+    opacity: .9
+});
+
+
+const cloudMesh = new THREE.Mesh(planetGeometry, cloudMetarial);
+cloudMesh.scale.set(1.01, 1.01, 1.01 )
+cloudMesh.position.x= .5
+groupPlanet.add(cloudMesh);
+
+
+
+
+   // LIGHTS
+  
+
+   const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+   pointLight.position.set(50, 50, 50);
+   scene.add(pointLight);
+
+   // OBJECTS
+   const galaxy = new THREE.Group();
+   scene.add(galaxy);
+
+   const starCount = 20000; // Increased star count
+   const starGeometry = new THREE.BufferGeometry();
+   const starPositions = new Float32Array(starCount * 3);
+
+   for (let i = 0; i < starCount; i++) {
+     const x = (Math.random() - 0.5) * 3000;
+     const y = (Math.random() - 0.5) * 3000;
+     const z = (Math.random() - 0.5) * 3000;
+
+     starPositions[i * 3] = x;
+     starPositions[i * 3 + 1] = y;
+     starPositions[i * 3 + 2] = z;
+   }
+
+   starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+   const starMaterial = new THREE.PointsMaterial({
+     size: 1,
+     sizeAttenuation: true,
+     color: 0xffffff,
+     map: new THREE.TextureLoader().load('https://res.cloudinary.com/dvnhn35l4/image/upload/v1690656693/raro_cyoaid.png'),
+     transparent: true,
+     blending: THREE.AdditiveBlending,
+   });
+   const stars = new THREE.Points(starGeometry, starMaterial);
+   galaxy.add(stars);
+
+
+
     // ORBIT CONTROLS
 
     const controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
-    controls.enableZoom = false;
+    
     controls.enablePan = false;
+    controls.enableZoom = true;
+    controls.minDistance = 1; // Distancia mínima de zoom
+    controls.maxDistance = 100; // Distancia máxima de zoom
+    
 
     // ANIMATE
 
@@ -242,15 +322,19 @@ const Scene = () => {
     const animate = () => {
       const time = clock.getElapsedTime();
       const elapsedTime = time;
-
-      planetMesh.rotation.y = elapsedTime / 30;
-
+    
+      groupPlanet.rotation.y = elapsedTime / 30;
+   
+      galaxy.rotation.y += 0.001;
       controls.update();
       composer.render();
       window.requestAnimationFrame(animate);
     };
-
+    
     animate();
+    
+
+    
 
     return () => {
       removeEventListeners();
@@ -261,9 +345,10 @@ const Scene = () => {
   return (
     <div className="home-container">
       <canvas className="webgl opacity-100 !rounded-[70px] " ref={canvas_scene}></canvas>
-
+      
       <div ref={textTitle} className="absolute top-[36.6rem] cursor-none select-none flex justify-center items-center flex-col ">
         <h1 className="text_title text-[17vw] text-[#ffffff] font-extrabold tracking-[-.4rem]"> Cambiar fondo </h1>
+       
       </div>
       <div id="circle_mouse">
         <CircularProgressbar

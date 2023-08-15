@@ -3,9 +3,102 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
+  animation: zoomIn 1s ease-in-out both;
 }
 ::-webkit-scrollbar {
   display: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Agrega estos estilos al final de tu archivo home.css */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+  opacity: 1;
+  pointer-events: auto; /* Añadido */
+  
+  overflow: hidden; /* Añadido */
+  filter: none; /* Añadido */
+  transition: opacity 0.5s ease;
+}
+
+
+.start-content {
+  text-align: center;
+}
+.start-content h1 {
+  font-size: 8rem;
+  margin-bottom: 20px;
+  font-family: 'Permanent Marker', cursive;
+  color: #fffffff3;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+  
+  
+}
+
+
+
+
+
+.start-content button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  background-color: #000000;
+  opacity: 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: #fffffff3;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+}
+
+.start-content button:hover {
+  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat; /* Ruta de tu GIF */
+  /* ...otros estilos... */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Ajusta las transiciones según lo necesites */
+  opacity: 1; /* Añadido */
+  background-size: cover;
+  transform: scale(1.05);
+  color: #fffffff3;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+
 }
 
 .presentation {
@@ -16,18 +109,50 @@
   text-align: center;
   z-index: 1;
 }
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ocupar toda la altura de la ventana */
-  font-size: 4rem;
-  font-weight: bold;
-  color: #40e6ec;
-  text-transform: uppercase;
-  font-family: 'Permanent Marker', cursive;
-  text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+.shattered {
+  transform: scale(0.8);
+  opacity: 0;
 }
+
+.shatter-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(40, 40, 40, 0.8), transparent);
+  animation: zoomOut 1s ease-in-out both;
+  pointer-events: none;
+  z-index: 3;
+}
+.zoom-out {
+  animation: zoomOut 1s ease-in-out both;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+.abduction {
+  animation: abduction 1s ease-in-out infinite;
+}
+
+@keyframes shatter {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+
+
+/* Resto de tus estilos permanecen iguales */
 
 
 .artist-description {

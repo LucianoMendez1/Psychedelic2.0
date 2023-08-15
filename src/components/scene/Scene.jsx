@@ -4,6 +4,7 @@ import planetTexture from './textures/texture2.jpg';
 import planetTexture2 from './textures/texture1.jpg';
 import planetTexture3 from './textures/texture3.jpg';
 import earthCloud from './textures/earthCloud22.png';
+import planetexterior from './textures/digital_painting_colums_and_roses_background_blanc.jpg'
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -21,11 +22,33 @@ const Scene = () => {
   const textTitle = useRef(null);
   const glitchPass = useRef(null);
   const [progress, setProgress] = useState(0);
+
+ 
   
 
   useEffect(() => {
     const canvas = canvas_scene.current;
+ const handleKeyDown = (event) => {
+    const speed = 1; // Velocidad de movimiento
+    const key = event.key.toLowerCase();
 
+    switch (key) {
+      case 'w':
+        camera.position.z -= speed;
+        break;
+      case 's':
+        camera.position.z += speed;
+        break;
+      case 'a':
+        camera.position.x -= speed;
+        break;
+      case 'd':
+        camera.position.x += speed;
+        break;
+      default:
+        break;
+    }
+  };
     // SCENE
 
     const scene = new THREE.Scene();
@@ -52,8 +75,8 @@ const Scene = () => {
 
     //CAMERA
 
-    const camera = new THREE.PerspectiveCamera(75, size.width / size.height, 0.1, 1000);
-    camera.position.set(0, 0, 50);
+    const camera = new THREE.PerspectiveCamera(90, size.width / size.height, 0.1, 1000);
+    camera.position.set(0, 0, 500);
 
     scene.add(camera);
 
@@ -76,12 +99,17 @@ const Scene = () => {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
+
+    document.addEventListener('keydown', handleKeyDown);
+   
+
     //TEXTURES
 
     const textureLoader = new THREE.TextureLoader();
     const planetMap = textureLoader.load(planetTexture);
     const planetMap2 = textureLoader.load(planetTexture2);
     const planetMap3 = textureLoader.load(planetTexture3);
+    const planetMap4 = textureLoader.load(planetexterior);
     const earthCloud1 = textureLoader.load(earthCloud)
 
     planetMap.minFilter = THREE.LinearFilter;
@@ -92,6 +120,9 @@ const Scene = () => {
 
     planetMap3.minFilter = THREE.LinearFilter;
     planetMap3.magFilter = THREE.LinearFilter;
+
+    planetMap4.minFilter = THREE.LinearFilter;
+    planetMap4.magFilter = THREE.LinearFilter;
 
     //PLANET
     const groupPlanet = new THREE.Group()
@@ -243,7 +274,7 @@ const Scene = () => {
   
 
   const cloudMesh2 = new THREE.Mesh(planetGeometry, cloudMetarial2);
-  cloudMesh2.scale.set(1.05, 1.05 , 1.05 )
+  cloudMesh2.scale.set(1.09,1.09,1.09)
   cloudMesh2.position.x= .5
 
 
@@ -251,7 +282,7 @@ const Scene = () => {
   groupPlanet.add(cloudMesh2);
 
   const cloudMetarial = new THREE.MeshBasicMaterial({
-    map:planetMap2,
+    map:planetMap4,
     
     opacity: .9
 });
@@ -266,45 +297,27 @@ groupPlanet.add(cloudMesh);
 
 
    // LIGHTS
-  
+   const galaxyTexture = new THREE.TextureLoader().load('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692060010/1165253_huhvov.jpg');
+   galaxyTexture.wrapS = THREE.ClampToEdgeWrapping; // No se repetirá horizontalmente
+   galaxyTexture.wrapT = THREE.ClampToEdgeWrapping; // No se repetirá verticalmente
+   
+   
+   // Crear el material para la esfera que rodea la cámara
+   const galaxyMaterial = new THREE.MeshBasicMaterial({
+     map: galaxyTexture,
+     side: THREE.BackSide, // Mostrar el interior de la esfera
+     fog: false, // Deshabilitar el efecto de la niebla
+   });
+   
+   // Crear la esfera que rodea la cámara
+   const galaxyGeometry = new THREE.SphereGeometry(500, 64, 64); // Gran radio para abarcar todo el espacio visible
+   const galaxySphere = new THREE.Mesh(galaxyGeometry, galaxyMaterial);
+   scene.add(galaxySphere);
 
    const pointLight = new THREE.PointLight(0xffffff, 1, 100);
    pointLight.position.set(50, 50, 50);
    scene.add(pointLight);
 
-   // OBJECTS
-   const galaxy = new THREE.Group();
-   scene.add(galaxy);
-
-   const starCount = 20000; // Increased star count
-   const starGeometry = new THREE.BufferGeometry();
-   const starPositions = new Float32Array(starCount * 3);
-
-   for (let i = 0; i < starCount; i++) {
-     const x = (Math.random() - 0.5) * 3000;
-     const y = (Math.random() - 0.5) * 3000;
-     const z = (Math.random() - 0.5) * 3000;
-
-     starPositions[i * 3] = x;
-     starPositions[i * 3 + 1] = y;
-     starPositions[i * 3 + 2] = z;
-   }
-
-   starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-   const starMaterial = new THREE.PointsMaterial({
-     size: 1,
-     sizeAttenuation: true,
-     color: 0xffffff,
-     map: new THREE.TextureLoader().load('https://res.cloudinary.com/dvnhn35l4/image/upload/v1690656693/raro_cyoaid.png'),
-     transparent: true,
-     blending: THREE.AdditiveBlending,
-   });
-   const stars = new THREE.Points(starGeometry, starMaterial);
-   galaxy.add(stars);
-
-
-
-    // ORBIT CONTROLS
 
     const controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
@@ -323,9 +336,16 @@ groupPlanet.add(cloudMesh);
       const time = clock.getElapsedTime();
       const elapsedTime = time;
     
-      groupPlanet.rotation.y = elapsedTime / 30;
+     
+    
+      groupPlanet.rotation.y = elapsedTime /10;
+      galaxyTexture.offset.x += 0.0000010
+     
+      controls.update();
+      composer.render();
    
-      galaxy.rotation.y += 0.001;
+     
+    
       controls.update();
       composer.render();
       window.requestAnimationFrame(animate);
@@ -339,6 +359,7 @@ groupPlanet.add(cloudMesh);
     return () => {
       removeEventListeners();
       window.removeEventListener('resize', handleWindowResize);
+       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
@@ -347,9 +368,11 @@ groupPlanet.add(cloudMesh);
       <canvas className="webgl opacity-100 !rounded-[70px] " ref={canvas_scene}></canvas>
       
       <div ref={textTitle} className="absolute top-[36.6rem] cursor-none select-none flex justify-center items-center flex-col ">
-        <h1 className="text_title text-[17vw] text-[#ffffff] font-extrabold tracking-[-.4rem]"> Cambiar fondo </h1>
+        <h1 className="text_title text-[17vw] text-[#ffffff] font-extrabold tracking-[-.4rem]"> Cambiar Planeta </h1>
        
       </div>
+
+     
       <div id="circle_mouse">
         <CircularProgressbar
           value={progress}

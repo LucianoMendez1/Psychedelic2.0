@@ -149,6 +149,15 @@ body {
   }
 }
 
+.arrow-right {
+  position: absolute;
+  color: #fffeff;
+  top: 450px;
+  left :900px; /* Ajusta la distancia desde el borde derecho según tu preferencia */
+  transform: translateY(-50%);
+  font-size: 10px;
+  cursor: pointer;
+}
 
 
 

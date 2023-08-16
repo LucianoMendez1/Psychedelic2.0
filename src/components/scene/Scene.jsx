@@ -4,7 +4,7 @@ import planetTexture from './textures/texture2.jpg';
 import planetTexture2 from './textures/texture1.jpg';
 import planetTexture3 from './textures/texture3.jpg';
 import earthCloud from './textures/earthCloud22.png';
-import planetexterior from './textures/digital_painting_colums_and_roses_background_blanc.jpg'
+import planetexterior from './textures/1080566.jpg'
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -289,7 +289,7 @@ const Scene = () => {
 
 
 const cloudMesh = new THREE.Mesh(planetGeometry, cloudMetarial);
-cloudMesh.scale.set(1.01, 1.01, 1.01 )
+cloudMesh.scale.set(1.03, 1.03, 1.03 )
 cloudMesh.position.x= .5
 groupPlanet.add(cloudMesh);
 

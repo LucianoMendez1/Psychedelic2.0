@@ -68,7 +68,7 @@ const Home = () => {
             Start
           </button>
           <button onClick={handleChangeBackground} className="change-background-button">
-            Change Background
+            Cambiar fondo
           </button>
         </div>
       </div>

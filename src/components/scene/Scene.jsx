@@ -4,7 +4,7 @@ import planetTexture from './textures/texture2.jpg';
 import planetTexture2 from './textures/texture1.jpg';
 import planetTexture3 from './textures/texture3.jpg';
 import earthCloud from './textures/earthCloud22.png';
-import planetexterior from './textures/1080566.jpg'
+import planetexterior from './textures/de0y6zo-718cb7c7-7c9f-4c8b-ba3d-f6395cb803a8_sbfiiy.jpg'
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';

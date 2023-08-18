@@ -25,7 +25,37 @@ body {
     opacity: 1;
   }
 }
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta el tamaño del GIF al contenedor sin deformar */
+  z-index: -1; /* Coloca el GIF detrás del contenido */
+}
 
+
+.start-content .change-background-button {
+  position: absolute;
+  bottom: 20px; /* Ajusta la distancia desde el borde inferior */
+  left: 20px; /* Ajusta la posición en el lado derecho */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: none; /* Sin fondo */
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-family: 'Permanent Marker', cursive;
+  color: #fcf9f9f3;
+  text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+  transform: perspective(900px) rotateX(30deg);
+}
+
+.change-background-button:hover {
+    color: #0efefe;
+}
 
 .start-screen {
   position: absolute;
@@ -33,7 +63,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,15 +80,17 @@ body {
 
 .start-content {
   text-align: center;
+  z-index: 1;
+  
 }
 .start-content h1 {
   font-size: 8rem;
   margin-bottom: 20px;
   font-family: 'Permanent Marker', cursive;
-  color: #fffffff3;
+  color: #fcf9f9f3;
     text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
     transform: perspective(900px) rotateX(30deg);
-  
+ 
   
 }
 
@@ -70,12 +102,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 30px;
+  padding: 100px 30px;
   font-size: 24px;
   font-weight: bold;
   text-transform: uppercase;
   color: #fcfcfc;
-  background-color: #000000;
+  
+}
+
+.start-button{
+  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
   opacity: 1;
   border: none;
   border-radius: 10px;
@@ -86,16 +122,17 @@ body {
   color: #fffffff3;
     text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
     transform: perspective(900px) rotateX(30deg);
+
 }
 
-.start-content button:hover {
+.start-button:hover {
   background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat; /* Ruta de tu GIF */
   /* ...otros estilos... */
   transition: transform 0.3s ease, opacity 0.3s ease; /* Ajusta las transiciones según lo necesites */
   opacity: 1; /* Añadido */
   background-size: cover;
-  transform: scale(1.05);
-  color: #fffffff3;
+  transform: scale(1.50);
+  color: #1ebfc4f3;
     text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
     transform: perspective(900px) rotateX(30deg);
 

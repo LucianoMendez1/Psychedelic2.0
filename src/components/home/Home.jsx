@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'; // Importa useRef
+import React, { useState, useRef } from 'react';
 import './home.css';
 import { Suspense } from 'react';
 import { gsap } from 'gsap';
@@ -6,20 +6,20 @@ import { Link } from 'react-router-dom';
 import Scene from '../scene/Scene';
 import Scene2 from '../scene/Scene2';
 import SceneSpace from '../scene/SceneSpace';
+import SceneScroll from '../scene/SceneScroll';
 import backgroundVideo1 from '../scene/textures/130703 (Original).mp4';
 import backgroundVideo2 from '../scene/textures/moon_-_121799 (1080p).mp4';
-import backgroundVideo3 from '../scene/textures/nebula_-_23906 (Original).mp4'; // Ruta del tercer video
-import backgroundVideo4 from '../scene/textures/giant_star_-_26328 (Original).mp4'; // Ruta del cuarto video
-import backgroundVideo5 from '../scene/textures/stars_-_39523 (Original).mp4'; // Ruta del quinto video
+import backgroundVideo3 from '../scene/textures/nebula_-_23906 (Original).mp4';
+import backgroundVideo4 from '../scene/textures/giant_star_-_26328 (Original).mp4';
 
 
 const Home = () => {
   const [showScenes, setShowScenes] = useState(false);
   const [isAbducted, setIsAbducted] = useState(false);
+  const [isInScene, setIsInScene] = useState(false); // Nuevo estado para la escena
   const [isInSceneSpace, setIsInSceneSpace] = useState(false);
-  const [currentBackgroundVideo, setCurrentBackgroundVideo] = useState(backgroundVideo1); // Estado para el video de fondo
-
-  const videoRef = useRef(null); // Referencia al elemento de video
+  const [currentBackgroundVideo, setCurrentBackgroundVideo] = useState(backgroundVideo1);
+  const videoRef = useRef(null);
 
   const handleStartClick = () => {
     setIsAbducted(true);
@@ -36,13 +36,16 @@ const Home = () => {
     setIsInSceneSpace(true);
   };
 
+  const handleEnterScene = () => {
+    setIsInScene(true);
+  };
+
   const handleChangeBackground = () => {
     if (videoRef.current) {
-      videoRef.current.pause(); // Pausa el video actual
+      videoRef.current.pause();
     }
 
-    // Cambia el video de fondo en función del estado actual
-    const videos = [backgroundVideo1, backgroundVideo2, backgroundVideo3, backgroundVideo4, backgroundVideo5];
+    const videos = [backgroundVideo1, backgroundVideo2, backgroundVideo3, backgroundVideo4];
     const currentIndex = videos.indexOf(currentBackgroundVideo);
     const nextIndex = (currentIndex + 1) % videos.length;
     const nextVideo = videos[nextIndex];
@@ -50,8 +53,8 @@ const Home = () => {
     setCurrentBackgroundVideo(nextVideo);
 
     if (videoRef.current) {
-      videoRef.current.load(); // Carga el nuevo video
-      videoRef.current.play(); // Reproduce el nuevo video
+      videoRef.current.load();
+      videoRef.current.play();
     }
   };
 
@@ -60,10 +63,13 @@ const Home = () => {
       <div className="start-screen">
         <div className="start-content">
           <h1>Psychedelic 2.0</h1>
+          
+         
           <video ref={videoRef} autoPlay loop muted className="background-video">
             <source src={currentBackgroundVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          
           <button onClick={handleStartClick} className="start-button">
             Start
           </button>
@@ -75,16 +81,14 @@ const Home = () => {
       <Suspense fallback={<div>Loading Scene...</div>}>
         {showScenes && (
           <>
-            {!isInSceneSpace && <Scene />}
             {isInSceneSpace && <Scene2 />}
+            {isInScene && <Scene />}
+            {!isInSceneSpace && !isInScene && <SceneScroll onEnterScene={handleEnterScene} />}
             <SceneSpace onEnter={handleEnterSceneSpace} />
           </>
         )}
       </Suspense>
-      <div className="presentation">
-        {/* Enlace a SceneSpace */}
-        <Link to="/scenespace"></Link>
-      </div>
+      
     </div>
   );
 };

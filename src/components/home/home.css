@@ -5,14 +5,8 @@
   overflow: hidden;
   animation: zoomIn 1s ease-in-out both;
 }
-::-webkit-scrollbar {
-  display: none;
-}
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+
+
 
 /* Agrega estos estilos al final de tu archivo home.css */
 @keyframes zoomIn {
@@ -119,7 +113,7 @@ body {
   transition: background-color 0.3s ease;
   position: relative;
   overflow: hidden;
-  color: #fffffff3;
+ 
     text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
     transform: perspective(900px) rotateX(30deg);
 
@@ -138,14 +132,7 @@ body {
 
 }
 
-.presentation {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 1;
-}
+
 .shattered {
   transform: scale(0.8);
   opacity: 0;
@@ -199,217 +186,6 @@ body {
 
 
 /* Resto de tus estilos permanecen iguales */
-
-
-.artist-description {
-  display: block;
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-
-  color: #fffefe;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transform: perspective(500px) rotateX(30deg);
-  
-}
-
-.description-container {
-  position: relative;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  margin-top: 20px;
-}
-
-.description-container.show {
-  opacity: 1;
-}
-h2 {
-  font-size: 20px;
-  text-align: center;
-  font-weight: 900;
-}
-
-
-.mi {
-  display: inline-block;
-  padding: 35px 35px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #ffffff;
-  background-color: #4700fc3c;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.mi:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #25004a;
-  opacity: 0;
-  animation: waveAnimation 1.5s infinite;
-  z-index: -1;
-}
-
-@keyframes waveAnimation {
-  0% {
-    width: 10px;
-    height: 10px;
-    opacity: 0;
-  }
-  50% {
-    width: 150px;
-    height: 150px;
-    opacity: 0.4;
-  }
-  100% {
-    width: 300px;
-    height: 300px;
-    opacity: 0;
-  }
-}
-
-.mi:hover {
-  background-color: #4d1bee51;
-  transform: scale(1.05);
-}
-
-.mi:hover:before {
-  animation-duration: 1.5s;
-}
-
-.mi .mi-label {
-  margin-right: 8px;
-}
-
-
-.cerrar-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  padding: 8px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fcfcfc;
-  background-color: rgba(255, 37, 157, 0.09);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.cerrar-button:hover {
-  background-color: #4d1bee51;
-}
-
-.btn-productos {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  font-size: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #ffffff;
-  margin-top: 20px;
-  padding: 10px 100px;
-  border-radius: 4px;
-  background-color:#4700fc96;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-
-}
-
-.btn-productos:hover {
-  background-color: #4d1bee51;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transform: translateZ(4px);
-}
-
-
-
-
-
-
-#circle_mouse {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    pointer-events: none;
-    transition: opacity 0.1s ease-out;
-    opacity: 0;
-}
-
-  
-#circle_mouse::after{
-    content: "";
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    border: 9px solid rgba(250, 250, 250, 0.267);
-    border-radius: 100%;
-}
-
-.text_title{
-    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0) ;
-    background: repeating-linear-gradient(to bottom, #b9b9b9 0%, #f2efefc7 80%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all .6s ease-in-out;
-}
-
-.t_name{
-    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.377) ;
-    background: repeating-linear-gradient(to bottom, #ffffff 0%, #141414 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.text_title:hover{
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.185));
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.199) ;
-    transition: all .6s ease-in-out;
-}
-
-.text_title:active{
-    background: repeating-linear-gradient(to bottom, #272727 0%, #000000a8 80%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all .6s ease-in-out;
-}
-
-
-
-
-.box_canvas::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10rem;
-    background-color: rgba(29, 29, 29, 0.767);
-    backdrop-filter: blur(5px);
-    z-index: -1;
-}
-
 
 
 
@@ -527,40 +303,3 @@ h2 {
 
 
 
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-  .title {
-    font-size: 30px;
-  }
-
-  .artist-description {
-    font-size: 18px;
-  }
-
-  .mi{
-    font-size: 14px;
-  }
-
-  .cerrar-button {
-    font-size: 14px;
-  }
-
-  .btn-productos {
-    font-size: 24px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .title {
-    font-size: 50px;
-  }
-
-  .mi{
-    font-size: 18px;
-  }
-
-  .artist-description {
-    font-size: 24px;
-  }
-}

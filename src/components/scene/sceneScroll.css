@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+body {
+    margin: 0;
+    overflow: hidden;
+    
+  }
+  
+  
+  .scene-scroll-container {
+    display: flex;
+    flex-direction: row;
+    width: 300%; /* Ancho total = número de secciones * 100% */
+    height: 100vh;
+    transition: transform 0.8s ease, opacity 0.3s ease; 
+    
+    
+  }
+
+  .shatter-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(40, 40, 40, 0.8), transparent);
+    animation: zoomOut 2s ease-in-out both;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+
+  .zoom-out {
+    animation: zoomOut 2s ease-in-out both;
+  }
+
+  @keyframes zoomOut {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.5);
+    }
+  }
+  .abduction {
+    animation: abduction 1s ease-in-out infinite;
+  }
+  /* sceneScroll.css */
+
+  
+  .section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    
+  }
+
+  .section h1{
+    font-size: 8rem;
+    margin-bottom: 20px;
+    font-family: 'Permanent Marker', cursive;
+    color: #fcf9f9f3;
+      text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+      transform: perspective(900px) rotateX(30deg);
+  }
+  
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    
+  }
+  
+  .content {
+    z-index: 1;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+
+  .start-button1{
+    font-family: 'Permanent Marker', cursive;
+    background: url('') center/cover no-repeat;
+    opacity: 1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: #fffffff3;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+  
+  }
+  
+  .start-button1:hover {
+    font-family: 'Permanent Marker', cursive;
+    background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat; /* Ruta de tu GIF */
+    /* ...otros estilos... */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Ajusta las transiciones según lo necesites */
+    opacity: 1; /* Añadido */
+    background-size: cover;
+    transform: scale(1.50);
+    color: #1ebfc4f3;
+      text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+      transform: perspective(900px) rotateX(30deg);
+  
+  }
+  

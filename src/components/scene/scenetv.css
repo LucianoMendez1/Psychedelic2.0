@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body {
+  
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+.tv-scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative; /* Para que los elementos internos sean posicionados relativos a este contenedor */
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Coloca el video detrás de otros elementos */
+}
+
+.tv {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.on {
+  border: none;
+  box-shadow: none;
+}
+
+.off {
+  background-color: rgba(9, 31, 53, 0.09);
+  box-shadow: none;
+}
+
+/* ... Resto de los estilos ... */
+
+
+.tv-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tv-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.channel-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.channel-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.channel-button.active {
+  background-color: #00ff00;
+  color: black;
+}
+
+.power-button {
+  position: absolute;
+ display: flex; /* Ajusta la posición en el lado derecho */
+ justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: none; /* Sin fondo */
+  font-size: 5rem;
+  margin-bottom: 10px;
+  font-family: 'Permanent Marker', cursive;
+  color: #0c0310;
+  text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+  transform: perspective(900px) rotateX(30deg);
+}
+
+.power-button:hover {
+  color: #a31600;;
+}

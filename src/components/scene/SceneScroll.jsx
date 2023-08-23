@@ -1,21 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './sceneScroll.css';
+import Scene from './Scene'; // Import the Scene component
+import SceneTv from './SceneTv'; // Import the SceneTv component
 
-// Importa los videos de fondo
 import background1 from './textures/133518 (Original).mp4';
 import background2 from './textures/stars_-_39523 (Original).mp4';
-import background3 from './textures/planet_-_100834 (Original).mp4';
-
-
-
-const Scene = React.lazy(() => import('./Scene'));
-const Scene2 = React.lazy(() => import('./Scene2'));
-const SceneSpace = React.lazy(() => import('./SceneSpace'));
-
+// import background3 from './textures/planet_-_100834 (Original).mp4';
 
 const SceneScroll = () => {
   const containerRef = useRef(null);
+  const videoRef = useRef(null);
   const sectionsRef = useRef([]);
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
 
@@ -40,6 +35,11 @@ const SceneScroll = () => {
       });
 
       setActiveSectionIndex(newIndex);
+
+      // Set playbackRate on the DOM element
+      if (videoRef.current) {
+        videoRef.current.playbackRate = 1.5; // Set your desired playbackRate here
+      }
     };
 
     window.addEventListener('wheel', handleScroll);
@@ -65,59 +65,55 @@ const SceneScroll = () => {
     });
 
     setActiveSectionIndex(newIndex);
+
+    // Set playbackRate on the DOM element
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5; // Set your desired playbackRate here
+    }
   };
 
   const handleEnterScene = (sceneName) => {
-    if (sceneName === 'SceneGalaxy') {
-      // Mostrar SceneGalaxy y ocultar otras escenas
-    } else if (sceneName === 'Scene2') {
-      // Mostrar Scene2 y ocultar otras escenas
+    let newIndex = 0;
+
+    if (sceneName === 'Scene') {
+      newIndex = 0;
+    } else if (sceneName === 'SceneTv') {
+      newIndex = 1;
     }
-    // ... otras condiciones para otras escenas
+    // Add more conditions for other scenes if needed
+
+    gsap.to(containerRef.current, {
+      x: -newIndex * window.innerWidth,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    setActiveSectionIndex(newIndex);
   };
 
   return (
-    
-      <div className="scene-scroll-container" ref={containerRef}>
-        <section className="section">
-          <video autoPlay muted loop className="video-background"  playbackRate={1.5}>
-            <source src={background1} type="video/mp4" />
-          </video>
-          <div className="content">
-            <h1>Galaxy </h1>
-            <button  className="start-button1" onClick={() => handleEnterScene('SceneGalaxy')}>Start</button>
-          </div>
-        </section>
-        <section className="section">
-          <video autoPlay muted loop className="video-background">
-            <source src={background2} type="video/mp4" />
-          </video>
-          <div className="content">
-            <h1>Tv Relax</h1>
-            <button  className="start-button1" onClick={() => handleEnterScene('Scene2')}>Start</button>
-          </div>
-        </section>
-        <section className="section">
-          <video autoPlay muted loop className="video-background">
-            <source src={background3} type="video/mp4" />
-          </video>
-          <div className="content">
-            <h1>....</h1>
-            <button  className="start-button1" onClick={() => handleEnterScene('Scene3')}>Start</button>
-          </div>
-        </section>
-      {/* <div className="navigation-buttons">
-        <button onClick={() => handleButtonNavigation('prev')} disabled={activeSectionIndex === 0}>
-          Anterior
-        </button>
-        <button
-          onClick={() => handleButtonNavigation('next')}
-          disabled={activeSectionIndex === sectionsRef.current.length - 1}
-        >
-          Siguiente
-        </button> */}
-      </div>
-   
+    <div className="scene-scroll-container" ref={containerRef}>
+      <section className="section">
+        <video autoPlay muted loop className="video-background" ref={videoRef}>
+          <source src={background1} type="video/mp4" />
+        </video>
+        <div className="content">
+          <h1>Galaxy</h1>
+          <button className="start-button1" onClick={() => handleEnterScene('Scene')}>Start</button>
+        </div>
+      </section>
+      <section className="section">
+        <video autoPlay muted loop className="video-background">
+          <source src={background2} type="video/mp4" />
+        </video>
+        <div className="content">
+          <h1>Tv Relax</h1>
+          <button className="start-button1" onClick={() => handleEnterScene('SceneTv')}>Start</button>
+        </div>
+      </section>
+      {/* ... (other sections) */}
+    </div>
   );
-}
+};
+
 export default SceneScroll;

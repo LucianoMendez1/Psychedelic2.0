@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
 import Scene from '../scene/Scene';
+import SceneTv from '../scene/SceneTv';
 import Scene2 from '../scene/Scene2';
 import SceneSpace from '../scene/SceneSpace';
 import SceneScroll from '../scene/SceneScroll';
@@ -83,6 +84,7 @@ const Home = () => {
           <>
             {isInSceneSpace && <Scene2 />}
             {isInScene && <Scene />}
+            {isInScene && <SceneTv />}
             {!isInSceneSpace && !isInScene && <SceneScroll onEnterScene={handleEnterScene} />}
             <SceneSpace onEnter={handleEnterSceneSpace} />
           </>

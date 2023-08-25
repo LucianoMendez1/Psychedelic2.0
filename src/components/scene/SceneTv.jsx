@@ -30,7 +30,7 @@ const SceneTv = () => {
       name: 'Canal 17'
     },
     {
-      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692918962/videos%20animated%20pys/This_Will_Destroy_You__New_Topia___Music_Video___Adult_Swim_1080p_wnor41.mp4',
+      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692750122/TV_Static_Sound_Effect_-_Bzz_usfbo1.mp4',
       name: 'Canal 22'
     },
     {

@@ -11,12 +11,13 @@ const SceneTv = () => {
 
   const channels = [
     {
-      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692582485/Blockhead_-_The_Music_Scene_g1govg.mp4',
+      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692918962/videos%20animated%20pys/This_Will_Destroy_You__New_Topia___Music_Video___Adult_Swim_1080p_wnor41.mp4',
       name: 'Canal 11'
     },
+    
     {
       url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692918999/videos%20animated%20pys/Flying_Lotus_-_Zodiac_Shit_1080p_zu7ala.mp4',
-      name: 'Canal 2'
+      name: 'Canal 22'
     },
 
 
@@ -31,6 +32,10 @@ const SceneTv = () => {
     {
       url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692918962/videos%20animated%20pys/This_Will_Destroy_You__New_Topia___Music_Video___Adult_Swim_1080p_wnor41.mp4',
       name: 'Canal 22'
+    },
+    {
+      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692582485/Blockhead_-_The_Music_Scene_g1govg.mp4',
+      name: 'Canal 33'
     },
     /* {
       url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692323906/moon_-_121799_1080p_yb749v.mp4',

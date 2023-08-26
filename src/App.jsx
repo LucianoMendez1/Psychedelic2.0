@@ -13,8 +13,8 @@ const App = () => {
         <Suspense fallback={<div>Loading...</div>}>
        
           <Routes >
-          <Route path="/" element={<SceneTv />} />
-            <Route path="/Home" element={<SceneTv />} />
+          <Route path="/" element={<Home />} />
+            <Route path="/Home" element={<Home />} />
           </Routes>
         </Suspense>
     

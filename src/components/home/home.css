@@ -132,6 +132,17 @@
 
 }
 
+.scene-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  
+}
 
 .shattered {
   transform: scale(0.8);
@@ -298,7 +309,36 @@
 
 
 
+.back-button-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+}
 
+.back-button {
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Permanent Marker', cursive;
+  color: #fcf9f9f3;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+ 
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.back-button:hover {
+  color: #038c90;
+}
 
 
 

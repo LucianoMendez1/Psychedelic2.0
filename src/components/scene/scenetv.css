@@ -101,12 +101,13 @@ body {
   background-color: transparent;
   color: rgb(255, 255, 255);
   border: none;
-  padding: 5px 10px;
+  padding: 5px 20px;
   margin: 0 5px;
+  
   cursor: pointer;
   outline: none;
   font-family: 'VT323', monospace;
-  font-size: 1.9rem;
+  font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 1px solid #555;
@@ -124,14 +125,14 @@ body {
   display: flex;
   justify-content: center;
   left: 50px;
-  top: 50px;
+  top: 90px;
   align-items: center;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   background: none;
-  font-size: 4rem;
+  font-size: 5rem;
   margin-bottom: 10px;
   font-family: 'VT323', monospace;
   color: #ffffff;
@@ -141,7 +142,7 @@ body {
 }
 
 .power-button:hover {
-  color: #ff0909;
+  color: #54ff0a;
   
 }
 
@@ -165,19 +166,36 @@ body {
 
 
 /* Personaliza la apariencia de la perilla */
-input[type="range"]::-webkit-slider-thumb {
+.volume-slider {
+  margin-top: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(90deg, #f9f9f949, #d8d8d85a); /* Utiliza un degradado suave */
+ 
+  border-radius: 10px; /* Aumenta el radio para un aspecto más suave */
+  padding: 5px; /* Añade un poco de espacio interno */
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
   width: 20px;
   height: 20px;
-  background-color: #9c0808; /* Color de la perilla */
-  border: 2px solid #333; /* Borde de la perilla */
-  border-radius: 50%; /* Hace que parezca una perilla */
+  background: #c0c0c0; /* Utiliza un tono de gris */
+  border: 2px solid #888; /* Agrega un borde oscuro */
+  border-radius: 50%;
   cursor: pointer;
 }
 
-.volume-label {
-  display: block;
-  text-align: center;
-  margin-top: 5px;
-  color: #fff;
+.volume-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #c0c0c0;
+  border: 2px solid #888;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.channel-buttons .volumen{
+  color: red;
 }

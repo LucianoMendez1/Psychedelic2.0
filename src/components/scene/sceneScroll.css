@@ -99,15 +99,18 @@ body {
   .start-button1{
     font-family: 'Permanent Marker', cursive;
     background: url('') center/cover no-repeat;
+    display: flex;
     opacity: 1;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 2rem;
+    bottom: 100px;
     transition: background-color 0.3s ease;
+    background: none;
     position: relative;
     overflow: hidden;
-    color: #fffffff3;
+    color: #f8f8f8f3;
     text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
     transform: perspective(900px) rotateX(30deg);
   

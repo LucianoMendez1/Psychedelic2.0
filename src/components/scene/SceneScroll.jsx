@@ -99,7 +99,7 @@ const SceneScroll = () => {
         </video>
         <div className="content">
           <h1>Galaxy</h1>
-          <button className="start-button1" onClick={() => handleEnterScene('Scene')}>Start</button>
+         {/*  <button className="start-button1" onClick={() => handleEnterScene('Scene')}>Start</button> */}
         </div>
       </section>
       <section className="section">
@@ -107,9 +107,11 @@ const SceneScroll = () => {
           <source src={background2} type="video/mp4" />
         </video>
         <div className="content">
-          <h1>Tv Relax</h1>
-          <button className="start-button1" onClick={() => handleEnterScene('SceneTv')}>Start</button>
-        </div>
+    <h1>Tv Relax</h1>
+    {/* <button className="start-button1" onClick={() => handleEnterScene('SceneTv')}>
+      Start
+    </button> */}
+  </div>
       </section>
       {/* ... (other sections) */}
     </div>

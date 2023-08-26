@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './scenetv.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVolumeUp, faVolumeDown } from '@fortawesome/free-solid-svg-icons';
 
 const SceneTv = () => {
   const [isTvOn, setIsTvOn] = useState(false);
@@ -30,11 +32,11 @@ const SceneTv = () => {
       name: 'Canal 17'
     },
     {
-      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692750122/TV_Static_Sound_Effect_-_Bzz_usfbo1.mp4',
+      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1693016120/videos%20animated%20pys/Homero_simpson_y_sus_problemas_con_las_DROGAS_elpepe_thesimpsons_720p_pconbc.mp4',
       name: 'Canal 22'
     },
     {
-      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692582485/Blockhead_-_The_Music_Scene_g1govg.mp4',
+      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1693018018/videos%20animated%20pys/FISHER_x_KITA_ALEXANDER_-_ATMOSPHERE_LYRIC_VIDEO_1080p_mslbrc.mp4',
       name: 'Canal 33'
     },
     /* {
@@ -153,6 +155,7 @@ const SceneTv = () => {
         <div className="tv-overlay">
           {isTvOn && (
             <div className="channel-buttons">
+              
               {channels.map((channel, index) => (
                 <button
                   key={index}
@@ -162,15 +165,19 @@ const SceneTv = () => {
                   {channel.name}
                 </button>
               ))}
-             <input
-    type="range"
-    min="0"
-    max="1"
-    step="0.01"
-    defaultValue="0.5"
-    onChange={(e) => handleVolumeChange(e.target.value)}
-  />
-  <span className="volume-label">{videoRef ? videoRef.volume.toFixed(2) : ''}</span>
+            
+              <div className="bajar"><h1>-</h1></div>
+            <input
+              className="volume-slider"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              defaultValue="0.5"
+              onChange={(e) => handleVolumeChange(e.target.value)}
+            />
+    <div className="subir"><h1>+</h1></div>
+
 </div>
           )}
         </div>
@@ -178,7 +185,9 @@ const SceneTv = () => {
       <button className="power-button" onClick={handlePowerToggle}>
         {isTvOn ? 'Apagar' : 'Encender'}
       </button>
+      
     </div>
+    
   );
 };
 

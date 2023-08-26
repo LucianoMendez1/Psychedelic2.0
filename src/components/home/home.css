@@ -57,7 +57,7 @@
   left: 0;
   width: 100%;
   height: 100%;
- 
+  animation: zoomOut 1s ease-in-out both;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +113,7 @@
   transition: background-color 0.3s ease;
   position: relative;
   overflow: hidden;
- 
+  animation: zoomIn 1s ease-in-out both;
     text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
     transform: perspective(900px) rotateX(30deg);
 
@@ -132,6 +132,65 @@
 
 }
 
+.start-button1{
+  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
+  opacity: 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: zoomIn 1s ease-in-out both;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+
+}
+.start-button1{
+  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
+  opacity: 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: zoomIn 1s ease-in-out both;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+
+}
+
+
+.start-button2{
+  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
+  opacity: 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: zoomIn 1s ease-in-out both;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+
+}
+.start-button2{
+  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
+  opacity: 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: zoomIn 1s ease-in-out both;
+    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(30deg);
+
+}
+
 .scene-navigation {
   display: flex;
   justify-content: center;
@@ -140,6 +199,7 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  animation: zoomOut 1s ease-in-out both;
   z-index: 1000;
   
 }
@@ -313,6 +373,7 @@
   position: absolute;
   top: 20px;
   left: 20px;
+  
   z-index: 1;
 }
 
@@ -324,7 +385,7 @@
   margin: 0 5px;
   cursor: pointer;
   outline: none;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'VT323', monospace;
   color: #fcf9f9f3;
     text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
     transform: perspective(900px) rotateX(30deg);

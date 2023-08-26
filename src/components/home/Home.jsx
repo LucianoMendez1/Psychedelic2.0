@@ -4,8 +4,7 @@ import { Suspense } from 'react';
 import { gsap } from 'gsap';
 import Scene from '../scene/Scene';
 import SceneTv from '../scene/SceneTv';
-import Scene2 from '../scene/Scene2';
-import SceneSpace from '../scene/SceneSpace';
+
 import SceneScroll from '../scene/SceneScroll';
 import backgroundVideo1 from '../scene/textures/130703 (Original).mp4';
 import backgroundVideo2 from '../scene/textures/moon_-_121799 (1080p).mp4';
@@ -86,15 +85,15 @@ const Home = () => {
       <Suspense fallback={<div>Loading Scene...</div>}>
         {showScenes && (
           <>
-            {(!isInSceneTv && !isInScene) && ( // Show navigation buttons only if no scenes are active
-              <div className="scene-navigation">
-                <button onClick={handleEnterScene} className="start-button1">
-                  Start Galaxy
-                </button>
-                <button onClick={handleEnterSceneTv} className="start-button1">
-                  Start SceneTv
-                </button>
-              </div>
+         {!isInSceneTv && !isInScene && ( // Show navigation buttons only if no scenes are active
+            <div className={`scene-navigation ${isAbducted ? 'abduction' : ''}`}>
+              <button onClick={handleEnterScene} className="start-button1">
+                Start Galaxy
+              </button>
+              <button onClick={handleEnterSceneTv} className="start-button2">
+                StartTv
+              </button>
+            </div>
             )}
             {(isInScene || isInSceneTv) && ( // Show Back buttons only if scenes are active
               <div className="back-button-container">

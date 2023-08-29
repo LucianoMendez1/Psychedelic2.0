@@ -1,14 +1,25 @@
+/* Importar la fuente */
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Contenedor principal */
+
+/* Contenido principal */
 .home-container {
   position: relative;
   height: 100vh;
   overflow: hidden;
   animation: zoomIn 1s ease-in-out both;
 }
-
-
-
-/* Agrega estos estilos al final de tu archivo home.css */
+/* Animación de entrada */
 @keyframes zoomIn {
   0% {
     transform: scale(1.5);
@@ -19,380 +30,199 @@
     opacity: 1;
   }
 }
+
+/* Video de fondo */
 .background-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ajusta el tamaño del GIF al contenedor sin deformar */
-  z-index: -1; /* Coloca el GIF detrás del contenido */
+  object-fit: cover;
+  z-index: -1;
+  
 }
 
+/* Botón de cambio de fondo */
+/* ... (código anterior) ... */
 
-.start-content .change-background-button {
+/* Botón de cambio de fondo */
+.change-background-button {
+  display: flex;
+  
   position: absolute;
-  bottom: 20px; /* Ajusta la distancia desde el borde inferior */
-  left: 20px; /* Ajusta la posición en el lado derecho */
+  left: 2%; /* Ajusta la posición verticalmente */
+  bottom: 1px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background: none; /* Sin fondo */
-  font-size: 1rem;
-  margin-bottom: 10px;
+  background: none;
+  font-size: 1.5rem;
   font-family: 'Permanent Marker', cursive;
   color: #fcf9f9f3;
-  text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-  transform: perspective(900px) rotateX(30deg);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transform: translateY(-50%) perspective(900px) rotateX(30deg); /* Centra verticalmente */
+  transition: color 0.3s, background-color 0.3s; /* Agregado efecto de transición */
 }
 
 .change-background-button:hover {
-    color: #0efefe;
+  color: #0efefe;
+
 }
 
+/* ... (código posterior) ... */
+
+
+
+
+
+/* Contenido principal */
 .start-screen {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh; /* Asegura que ocupe el 100% de la altura visible */
   animation: zoomOut 1s ease-in-out both;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
- 
   opacity: 1;
-  pointer-events: auto; /* Añadido */
-  
-  overflow: hidden; /* Añadido */
-  filter: none; /* Añadido */
+  pointer-events: auto;
+  overflow: hidden;
+  filter: none;
   transition: opacity 0.5s ease;
 }
-
-
+/* Estilos para el contenido principal */
 .start-content {
   text-align: center;
   z-index: 1;
-  
 }
+
 .start-content h1 {
   font-size: 8rem;
   margin-bottom: 20px;
   font-family: 'Permanent Marker', cursive;
   color: #fcf9f9f3;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
- 
-  
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transform: perspective(900px) rotateX(30deg);
 }
 
-
-
-
-
-.start-content button {
+/* Estilos para los botones de inicio */
+.start-button,
+.start-button1,
+.start-button2 {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 100px 30px;
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #fcfcfc;
-  
-}
-
-.start-button{
+  justify-content: center;
   background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
+  top: 20px;
   opacity: 1;
+  font-size: 2rem;
+  width: 120px ;
+  height: 200px;
+  font-family: 'Permanent Marker', cursive;
+  color: beige;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   position: relative;
   overflow: hidden;
   animation: zoomIn 1s ease-in-out both;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
-
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transform: perspective(900px) rotateX(30deg);
 }
 
-.start-button:hover {
-  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat; /* Ruta de tu GIF */
-  /* ...otros estilos... */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Ajusta las transiciones según lo necesites */
-  opacity: 1; /* Añadido */
+
+.start-button:hover,
+.start-button1:hover,
+.start-button2:hover {
+  transform: scale(1.5);
+  opacity: 1;
   background-size: cover;
-  transform: scale(1.50);
   color: #1ebfc4f3;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
-
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transform: perspective(900px) rotateX(30deg);
 }
 
-.start-button1{
-  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
-  opacity: 1;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: zoomIn 1s ease-in-out both;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
-
-}
-.start-button1{
-  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
-  opacity: 1;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: zoomIn 1s ease-in-out both;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
-
-}
-
-
-.start-button2{
-  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
-  opacity: 1;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: zoomIn 1s ease-in-out both;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
-
-}
-.start-button2{
-  background: url('https://res.cloudinary.com/dvnhn35l4/image/upload/v1692066011/cartas_oecxtx.gif') center/cover no-repeat;
-  opacity: 1;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: zoomIn 1s ease-in-out both;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
-
-}
-
+/* Navegación de escena */
 .scene-navigation {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 20px;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   animation: zoomOut 1s ease-in-out both;
   z-index: 1000;
-  
 }
 
-.shattered {
-  transform: scale(0.8);
-  opacity: 0;
+/* Estilos para la batería */
+.box_battery {
+  transform: scale(0.23);
+  width: 3rem;
 }
 
-.shatter-effect {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, rgba(40, 40, 40, 0.8), transparent);
-  animation: zoomOut 1s ease-in-out both;
-  pointer-events: none;
-  z-index: 3;
-}
-.zoom-out {
-  animation: zoomOut 1s ease-in-out both;
-}
-
-@keyframes zoomOut {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.5);
-  }
-}
-.abduction {
-  animation: abduction 1s ease-in-out infinite;
-}
-
-@keyframes shatter {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-.arrow-right {
-  position: absolute;
-  color: #fffeff;
-  top: 450px;
-  left :900px; /* Ajusta la distancia desde el borde derecho según tu preferencia */
-  transform: translateY(-50%);
-  font-size: 10px;
-  cursor: pointer;
-}
-
-
-
-/* Resto de tus estilos permanecen iguales */
-
-
-
-
-
-/* Icons top */
-
-.rec{
-    position:absolute;
-    right: 40px;
-    top: 15px;
-    color:#ffffff;
-    font-weight: semibold;
-    font-size:24px;
-    opacity: .26;
-    scale:.9;
-  }
-  .rec span span{
-    width:14px;
-    height:14px;
-    display:inline-block;
-    background:rgb(255, 0, 0);
-    border-radius:50%;
-    animation: blinky 1s ease-in-out infinite;
-  }
-    
-    
-  @keyframes blinky { 
-    0% {background:transparent;}
-    49% {background:transparent;}
-    50% {background:rgba(255, 0, 0, 0.719);}
-  }
-
-
-  /* batery */
-
-.box_battery{
-    scale:.23;
-    width: 3rem;
-}
-  
 .battery {
   height: 3.7em;
   width: 2.3em;
   background-color: transparent;
   box-sizing: border-box;
-  border: .3em #ffffff solid;
+  border: 0.3em #ffffff solid;
   float: left;
   display: block;
   padding: 0;
   margin: 0 auto;
-  position:absolute;
+  position: absolute;
 }
 
 .battery::before {
   content: "";
-  height: .4em;
+  height: 0.4em;
   width: 1.1em;
   background-color: #ffffff;
   position: absolute;
-  margin-top: -.6em;
-  margin-left: .3em;
+  margin-top: -0.6em;
+  margin-left: 0.3em;
 }
 
 .battery::after {
   content: "";
   width: 1.4em;
   position: absolute;
-  margin-left: .2em;
+  margin-left: 0.2em;
   height: 1em;
   margin-top: 0.2em;
   -webkit-animation: batery 7s linear infinite;
   animation: batery 7s linear infinite;
 }
 
-@keyframes batery {
-  0%{height: 2.8em; margin-top: 0.2em;background:transparent;}
-  7.5%{height: 2.5em; margin-top: 0.5em;}
-  15%{height: 1.9em; margin-top: 1.1em;}
-  22.5%{height: 1.6em; margin-top: 1.4em;}
-  30%{height: 1em; margin-top: 2em;}
-  37.5%{height: 0.6em; margin-top: 2.4em;}
-  45%{height: 0.3em; margin-top: 2.7em; background: rgb(247, 19, 19);}
-  52.5%{height: 0em; margin-top: 3em;background:none;}
-  60%{background:none;}
-  67.5%{height: 2.8em; margin-top: 0.2em;background:none;}
-  70%{height: 2.8em; margin-top: 0.2em;background:none;}
-  75%{height: 2.8em; margin-top: 0.2em;background: 
-    linear-gradient(113deg, 
-      rgb(235, 66, 66) 0%, 
-      rgb(235, 66, 66) 46%, 
-      rgb(85, 85, 87) 46%, 
-      rgb(85, 85, 87) 54%, 
-      rgb(255, 0, 0) 54%, 
-      rgb(255, 0, 0) 100%);
-  }
-  85%{background:none;}
-  95%{height: 2.8em; margin-top: 0.2em;background: 
-    linear-gradient(113deg, 
-      rgb(255, 0, 0) 0%, 
-      rgb(255, 0, 0) 46%, 
-      rgb(85, 85, 87) 46%, 
-      rgb(85, 85, 87) 54%, 
-      rgb(255, 0, 0) 54%, 
-      rgb(255, 0, 0) 100%);
-  }
-  100%{background:none;}
-}
-  
-
-
-
+/* Botón de retroceso */
 .back-button-container {
   position: absolute;
   top: 20px;
   left: 20px;
-  
   z-index: 1;
 }
 
 .back-button {
   background-color: transparent;
-  color: rgb(255, 255, 255);
+  color: #fcf9f9f3;
   border: none;
   padding: 5px 10px;
   margin: 0 5px;
   cursor: pointer;
   outline: none;
   font-family: 'VT323', monospace;
-  color: #fcf9f9f3;
-    text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(900px) rotateX(30deg);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transform: perspective(900px) rotateX(30deg);
   font-size: 1.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
- 
   border-radius: 5px;
   transition: all 0.3s;
 }
@@ -400,7 +230,3 @@
 .back-button:hover {
   color: #038c90;
 }
-
-
-
-

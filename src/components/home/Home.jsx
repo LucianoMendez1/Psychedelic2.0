@@ -6,9 +6,9 @@ import Scene from '../scene/Scene';
 import SceneTv from '../scene/SceneTv';
 
 import SceneScroll from '../scene/SceneScroll';
-import backgroundVideo1 from '../scene/textures/130703 (Original).mp4';
-import backgroundVideo2 from '../scene/textures/moon_-_121799 (1080p).mp4';
-import backgroundVideo3 from '../scene/textures/nebula_-_23906 (Original).mp4';
+import backgroundVideo2 from '../scene/textures/130703 (Original).mp4';
+import backgroundVideo3 from '../scene/textures/moon_-_121799 (1080p).mp4';
+import backgroundVideo1 from '../scene/textures/giant_star_-_26328 (Original).mp4';
 import backgroundVideo4 from '../scene/textures/giant_star_-_26328 (Original).mp4';
 
 const Home = () => {
@@ -91,7 +91,7 @@ const Home = () => {
                 Start Galaxy
               </button>
               <button onClick={handleEnterSceneTv} className="start-button2">
-                StartTv
+                Start Tv
               </button>
             </div>
             )}

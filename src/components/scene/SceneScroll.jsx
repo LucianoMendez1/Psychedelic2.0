@@ -2,8 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './sceneScroll.css';
 
-import background1 from './textures/MOLECULE - Rockall (Official Video Clip) (1080p).mp4';
-import background2 from './textures/hollis_–_sedative___official_music_video (1080p).mp4';
+import background1 from './textures/Sci-Fi Experimental Short Film_ _Until There Was Nothing_ _ DUST (1080p).mp4';
+import background2 from './textures/Sci-Fi Experimental Short Film_ _Until There Was Nothing_ _ DUST (1080p).mp4';
 
 const SceneScroll = () => {
   const containerRef = useRef(null);
@@ -74,15 +74,15 @@ const SceneScroll = () => {
           {/* ... */}
         </div>
       </section>
-      <section className="section">
+      {/* <section className="section">
         <video autoPlay muted loop className="video-background" ref={videoRef}>
           <source src={background1} type="video/mp4" />
         </video>
         <div className="content">
           <h1>Galaxy</h1>
-          {/* ... */}
+        
         </div>
-      </section>
+      </section> */}
      
       {/* ... (other sections) */}
     </div>

@@ -97,3 +97,21 @@ button {
   text-shadow: 10px 3px 4px rgba(0, 0, 0, 0.5);
   transform: perspective(900px) rotateX(30deg);
 }
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 16px; /* Ejemplo: Cambiar el tamaño de fuente en dispositivos móviles */
+  }
+  
+  .section h1 {
+    font-size: 4rem; /* Ejemplo: Cambiar el tamaño de fuente de los encabezados en dispositivos móviles */
+  }
+
+  .start-button1,
+  .start-button2 {
+    font-size: 1.5rem; /* Ejemplo: Cambiar el tamaño de fuente de los botones en dispositivos móviles */
+    bottom: 10rem; /* Ejemplo: Ajustar la posición vertical de los botones en dispositivos móviles */
+  }
+  
+  /* Puedes agregar más estilos específicos para dispositivos móviles según tus necesidades */
+}

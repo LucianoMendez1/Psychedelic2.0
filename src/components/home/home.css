@@ -14,6 +14,7 @@ body {
 
 /* Contenido principal */
 .home-container {
+  display: flex;
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -71,7 +72,6 @@ body {
 
 }
 
-/* ... (código posterior) ... */
 
 
 
@@ -79,6 +79,7 @@ body {
 
 /* Contenido principal */
 .start-screen {
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
@@ -102,10 +103,11 @@ body {
 }
 
 .start-content h1 {
+  display: flex;
   font-size: 8rem;
   margin-bottom: 20px;
   font-family: 'Permanent Marker', cursive;
-  color: #fcf9f9f3;
+  color: #f6f6f6f3;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   transform: perspective(900px) rotateX(30deg);
 }
@@ -229,4 +231,17 @@ body {
 
 .back-button:hover {
   color: #038c90;
+}
+
+
+@media screen and (max-width: 768px) {
+  .start-content h1 {
+    display: flex;
+    font-size: 2rem;
+  }
+  
+
+  
+ 
+  
 }

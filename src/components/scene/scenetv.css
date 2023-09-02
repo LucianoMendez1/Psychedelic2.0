@@ -29,6 +29,7 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Cambia el número de columnas según prefieras */
   grid-template-rows: repeat(3, 1fr); /* Cambia el número de filas según prefieras */
+  z-index: -1; /* Asegúrate de que los GIFs estén detrás de otros elementos */
 }
 
 .background-gif {
@@ -38,12 +39,10 @@ body {
   max-height: 300px; /* Ajusta el tamaño máximo según prefieras */
   object-fit: cover;
   opacity: 0.8; /* Cambia la opacidad según prefieras */
+  z-index: -1; /* Asegúrate de que los GIFs estén detrás de otros elementos */
 }
 
-.background-grid.show {
-  display: grid;
-}
-
+/* Asegúrate de que los GIFs estén ocultos cuando la televisión está apagada */
 .background-grid.hide {
   display: none;
 }
@@ -155,6 +154,7 @@ body {
 
 }
 .background-video {
+  
   position: absolute;
   top: 0;
   left: 0;
@@ -340,6 +340,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    
   }
 
   /* Personaliza la apariencia de la perilla */

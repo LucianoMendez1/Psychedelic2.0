@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './sceneScroll.css';
 
-import background1 from './textures/Sci-Fi Experimental Short Film_ _Until There Was Nothing_ _ DUST (1080p).mp4';
+
 import background2 from './textures/Sci-Fi Experimental Short Film_ _Until There Was Nothing_ _ DUST (1080p).mp4';
 
 const SceneScroll = () => {
@@ -47,7 +47,7 @@ const SceneScroll = () => {
   const handleEnterScene = (sceneName) => {
     let newIndex = 0;
 
-    if (sceneName === 'Scene') {
+    if (sceneName === 'SceneTv') {
       newIndex = 0;
     } else if (sceneName === 'SceneTv') {
       newIndex = 1;

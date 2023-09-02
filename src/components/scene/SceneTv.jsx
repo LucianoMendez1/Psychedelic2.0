@@ -39,10 +39,7 @@ const SceneTv = () => {
       url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1693018018/videos%20animated%20pys/FISHER_x_KITA_ALEXANDER_-_ATMOSPHERE_LYRIC_VIDEO_1080p_mslbrc.mp4',
       name: 'Canal 33'
     },
-    {
-      url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1693276515/videos%20animated%20pys/hollis___sedative___official_music_video_1080p_cla91g.mp4',
-      name: 'Canal 66'
-    },
+    
     /* {
       url: 'https://res.cloudinary.com/dvnhn35l4/video/upload/v1692323906/moon_-_121799_1080p_yb749v.mp4',
       name: 'Canal 34'

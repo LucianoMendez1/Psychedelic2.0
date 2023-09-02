@@ -1,10 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Suspense as ReactSuspense } from 'react';
 import './home.css';
-import { Suspense } from 'react';
 import { gsap } from 'gsap';
 
 import SceneTv from '../scene/SceneTv';
-
 import SceneScroll from '../scene/SceneScroll';
 import backgroundVideo2 from '../scene/textures/130703 (Original).mp4';
 import backgroundVideo1 from '../scene/textures/abstract_background_-_107303 (Original).mp4';
@@ -31,12 +29,12 @@ const Home = () => {
   };
 
   const handleEnterSceneTv = () => {
-    setIsInScene(false); // You need to set isInScene to false
+    setIsInScene(false); // Debes establecer isInScene como false
     setIsInSceneTv(true);
   };
 
   const handleEnterScene = () => {
-    setIsInSceneTv(false); // You need to set isInSceneTv to false
+    setIsInSceneTv(false); // Debes establecer isInSceneTv como false
     setIsInScene(true);
   };
 
@@ -64,38 +62,35 @@ const Home = () => {
   };
 
   return (
-    <div className={`home-container ${isAbducted ? 'abduction' : ''}`}>
-      <div className="start-screen">
-        <div className="start-content">
-          <h1>Psychedelic 2.0</h1>
-          <video ref={videoRef} autoPlay loop muted className="background-video">
-            <source src={currentBackgroundVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          {!showScenes && ( // Show Start button only on start screen
-            <button onClick={handleStartClick} className="start-button">
-              Start
+    <ReactSuspense fallback={<div>Loading Scene...</div>}>
+      <div className={`home-container ${isAbducted ? 'abduction' : ''}`}>
+        <div className="start-screen">
+          <div className="start-content">
+            <h1>Psychedelic 2.0</h1>
+            <video ref={videoRef} autoPlay loop muted className="background-video">
+              <source src={currentBackgroundVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            {!showScenes && ( // Mostrar el botón "Start" solo en la pantalla de inicio
+              <button onClick={handleStartClick} className="start-button">
+                Start
+              </button>
+            )}
+            <button onClick={handleChangeBackground} className="change-background-button">
+              Cambiar fondo
             </button>
-          )}
-          <button onClick={handleChangeBackground} className="change-background-button">
-            Cambiar fondo
-          </button>
+          </div>
         </div>
-      </div>
-      <Suspense fallback={<div>Loading Scene...</div>}>
         {showScenes && (
           <>
-         {!isInSceneTv && !isInScene && ( // Show navigation buttons only if no scenes are active
-            <div className={`scene-navigation ${isAbducted ? 'abduction' : ''}`}>
-              {/* <button onClick={handleEnterScene} className="start-button1">
-                Start Galaxy
-              </button> */}
-              <button onClick={handleEnterSceneTv} className="start-button2">
-                Start 
-              </button>
-            </div>
+            {!isInSceneTv && !isInScene && ( // Mostrar botones de navegación solo si no hay escenas activas
+              <div className={`scene-navigation ${isAbducted ? 'abduction' : ''}`}>
+                <button onClick={handleEnterSceneTv} className="start-button1">
+                  Start
+                </button>
+              </div>
             )}
-            {(isInScene || isInSceneTv) && ( // Show Back buttons only if scenes are active
+            {(isInScene || isInSceneTv) && ( // Mostrar botones "Back" solo si hay escenas activas
               <div className="back-button-container">
                 <button onClick={handleBackToHome} className="back-button">
                   Volver
@@ -103,14 +98,11 @@ const Home = () => {
               </div>
             )}
             {isInSceneTv && <SceneTv />}
-            {isInScene && <Scene />}
-            {!isInSceneTv && !isInScene && (
-              <SceneScroll onEnterScene={handleEnterScene} />
-            )}
+            {!isInSceneTv && !isInScene && <SceneScroll onEnterScene={handleEnterScene} />}
           </>
         )}
-      </Suspense>
-    </div>
+      </div>
+    </ReactSuspense>
   );
 };
 

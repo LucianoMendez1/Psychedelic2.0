@@ -67,7 +67,7 @@ const Home = () => {
         <div className="start-screen">
           <div className="start-content">
             <h1>Psychedelic 2.0</h1>
-            <video ref={videoRef} autoPlay loop muted className="background-video">
+            <video ref={videoRef} autoPlay loop muted playsInline className="background-video">
               <source src={currentBackgroundVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>

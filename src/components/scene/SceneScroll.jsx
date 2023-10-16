@@ -66,7 +66,7 @@ const SceneScroll = () => {
   return (
     <div className="scene-scroll-container" ref={containerRef}>
        <section className="section">
-        <video autoPlay muted loop className="video-background">
+        <video autoPlay muted loop playsInline className="video-background">
           <source src={background2} type="video/mp4" />
         </video>
         <div className="content">

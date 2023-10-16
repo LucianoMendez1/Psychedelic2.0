@@ -139,6 +139,7 @@ const SceneTv = () => {
       <div className={`tv ${isTvOn ? 'on' : 'off'}`}>
         {isTvOn && (
           <video
+          playsInline
             className={`tv-screen ${isVideoLoaded ? 'loaded' : ''}`}
             ref={(ref) => {
               setVideoRef(ref);
@@ -149,7 +150,7 @@ const SceneTv = () => {
             autoPlay
             loop
           >
-            <source src={channels[currentChannel].url} type="video/mp4" />
+            <source src={channels[currentChannel].url} type="video/mp4"  />
             Your browser does not support the video tag.
           </video>
         )}
@@ -175,6 +176,7 @@ const SceneTv = () => {
               max="1"
               step="0.01"
               defaultValue="0.5"
+              playsInline
               onChange={(e) => handleVolumeChange(e.target.value)}
             />
     <div className="subir"><h1>+</h1></div>
